@@ -1,0 +1,67 @@
+Python Practice: Decorators
+
+
+Feel free to implement all decorators as functions or classes. The choice depends on you.
+
+
+### Task 1 
+Write a decorator which wraps functions to log function arguments and the return value on each call. Provide support for both positional and named arguments (your wrapper function should take both *args and **kwargs and print them both): 
+
+>>> @logged 
+    def func(*args): 
+    return 3 + len(args) 
+
+>>> func(4, 4, 4) 
+
+you called func(4, 4, 4) 
+it returned 6
+6
+
+### Task 2
+
+Write a decorator to cache function invocation results. 
+Store pairs arg:result in a dictionary in an attribute of the function object. The function being memoized is fibonacci or factorial. 
+If you choose factorial please write your own function. Do not use module math.
+ 
+### Task 3
+
+Write a decorator to memoize functions with an arbitrary set of arguments. Note that memoization is only possible if the arguments are hashable. If the wrapper is called with arguments which are not hashable, then the argument should be converted or the wrapped function should just be called without caching.  Investigate the variation of usage. 
+
+
+### Task 4
+
+
+Create decorator deprecated2 to take an optional argument — a function to call instead of the original function.
+
+Example:
+
+
+def deprecated2(...
+
+@deprecated2(new_foo_bar)
+def foo_bar(a, b):
+    return a + b
+
+foo_bar(1, 2)
+
+Result:
+foo_bar is deprecated. new_foo_bar will be called instead
+2
+
+
+### Task 5
+
+Write a class that represents a connection hook and takes as initialisation arguments access_id and access_key. Create a decorator to validate if access_key is valid for provided access_id. If not print an error message into console.
+
+
+ConnectionHook(access_id=“Jane@mail.com”, access_key=“cat_12_l”)
+
+>>> Authorization successful.
+
+
+ConnectionHook(access_id=“Jane@mail.com”, access_key=“cat_12_”)
+
+>>> Wrong key, access denied!
+
+Optional: 
+Implement solution that will not store the access keys right in code. Think about other way to store and check access_key value.

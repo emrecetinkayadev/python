@@ -1,0 +1,25 @@
+23-10-2022 15:46:47 - Called Function: sum_2_num | Arguments: ((2, 4), {}) | Result: 6 
+23-10-2022 15:46:49 - Called Function: sum_2_num | Arguments: ((2, 4), {}) | Result: 6 
+23-10-2022 15:46:56 - Called Function: sum_2_num | Arguments: ((9, 7), {}) | Result: 16 
+23-10-2022 15:47:52 - Called Function: sum_2_num | Arguments: ((9, 7), {}) | Result: 16 
+23-10-2022 15:47:52 - Called Function: mult_2_num | Arguments: ((24, 8), {}) | Result: 192 
+24-10-2022 12:17:45 - Called Function: sum_2_num | Arguments: ((9, 7), {}) | Result: 16 
+24-10-2022 12:17:45 - Called Function: mult_2_num | Arguments: ((24, 8), {}) | Result: 192 
+24-10-2022 12:19:22 - Called Function: sum_2_num | Arguments: ((9, 7), {}) | Result: 16 
+24-10-2022 12:19:22 - Called Function: mult_2_num | Arguments: ((24, 8), {}) | Result: 1920 
+24-10-2022 12:20:04 - Called Function: sum_2_num | Arguments: (9, 7) {} | Result: 16 
+24-10-2022 12:20:04 - Called Function: mult_2_num | Arguments: (24, 8) {} | Result: 1920 
+24-10-2022 12:20:18 - Called Function: sum_2_num | Arguments: (9, 7) {} | Result: 16 
+24-10-2022 12:20:18 - Called Function: mult_2_num | Arguments: (24, 8, 5) {} | Result: 960 
+24-10-2022 12:20:55 - Called Function: sum_2_num | Arguments: (9, 7) {} | Result: 16 
+24-10-2022 12:20:55 - Called Function: mult_2_num | Arguments: (24, 8) {'c': 5} | Result: cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc 
+24-10-2022 12:21:35 - Called Function: sum_2_num | Arguments: (9, 7) {} | Result: 16 
+24-10-2022 12:21:35 - Called Function: mult_2_num | Arguments: (24, 8) {'c': 5} | Result: cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc 
+24-10-2022 12:22:17 - Called Function: sum_2_num | Arguments: (9, 7) {} | Result: 16 
+24-10-2022 12:22:17 - Called Function: mult_2_num | Arguments: (24, 8, 5) {} | Result: 960 
+24-10-2022 12:23:57 - Called Function: sum_2_num | Arguments: (9, 7) {} | Result: 16 
+24-10-2022 12:23:57 - Called Function: mult_2_num | Arguments: (24, 8, 5) {} | Result: 960 
+24-10-2022 12:24:22 - Called Function: sum_2_num | Arguments: (9, 7) {} | Result: 16 
+24-10-2022 12:24:37 - Called Function: sum_2_num | Arguments: (9, 7) {} | Result: 16 
+24-10-2022 12:24:56 - Called Function: sum_2_num | Arguments: (9, 7) {} | Result: 16 
+24-10-2022 12:25:12 - Called Function: sum_2_num | Arguments: (9, 7) {} | Result: 16 
