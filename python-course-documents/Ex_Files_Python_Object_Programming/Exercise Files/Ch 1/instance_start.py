@@ -11,7 +11,7 @@ class Book:
         self.author = author
         self.pages = pages
         self.price = price
-        self.__secret = secretkey
+        self.__secret = secretkey #this is a secret key
 
     # TODO: create instance methods
     def getPrice(self):
@@ -34,7 +34,6 @@ print(b2.getPrice())
 # TODO: try setting the discount
 b1.setDiscount(0.23443435)
 print(b1.getPrice())
-
 
 # TODO: properties with double underscores are hidden by the interpreter
 print(b1._Book__secret)
