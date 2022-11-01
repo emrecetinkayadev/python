@@ -1,0 +1,176 @@
+ Task 1
+
+Implement the decorator function, which helps to count how many times
+the function has occurred.
+
+*NOTE:* NOT able to use global variables.
+
+Implementation example:
+```python
+def dec(foo):
+  ...
+
+@dec
+def foo(): pass
+
+foo()
+foo()
+foo()
+foo()
+r = foo()
+print(r)
+>>> 5
+```
+
+Task 2
+
+Implement a function `get_pairs(lst: List) -> List[Tuple]`
+which returns a list of tuples containing pairs of elements.
+Pairs should be formed as in the example.
+If there is only one element in the list return `None` instead.
+
+Example:
+```python
+>>> get_pairs([1, 2, 3, 8, 9])
+[(1, 2), (2, 3), (3, 8), (8, 9)]
+
+>>> get_pairs(['need', 'to', 'sleep', 'more'])
+[('need', 'to'), ('to', 'sleep'), ('sleep', 'more')]
+
+>>> get_pairs([1])
+None
+```
+
+
+Task 3
+
+Implement a function `get_shortest_word(s: str) -> str` which
+returns the longest word in the given string.
+The word can contain any symbols except whitespaces (` `, `\n`, `\t` and so on).
+If there are multiple longest words in the string with a same length
+return the word that occurs first.
+
+Example:
+```python
+
+>>> get_shortest_word('Python is simple and effective!')
+'effective!'
+
+>>> get_shortest_word('Any pythonista like namespaces a lot.')
+'pythonista'
+```
+
+
+Task 4
+
+Implement a Counter class which optionally accepts the start value and
+the counter stop value.
+If the start value is not specified the counter should begin with 0.
+If the stop value is not specified it should be counting up infinitely.
+If the counter reaches the stop value, print "Maximal value is reached."
+
+Implement to methods: "increment" and "get"
+
+/If you're familiar with Exception rising use it to display
+the "Maximal value is reached." message./
+
+Example:
+```python
+>>> c = Counter(start=42)
+>>> c.increment()
+>>> c.get()
+43
+
+>>> c = Counter()
+>>> c.increment()
+>>> c.get()
+1
+>>> c.increment()
+>>> c.get()
+2
+
+>>> c = Counter(start=42, stop=43)
+>>> c.increment()
+>>> c.get()
+43
+>>> c.increment()
+Maximal value is reached.
+>>> c.get()
+43
+```
+
+
+Task 5
+
+Create hierarchy out of birds.
+Implement 4 classes:
+* Birds class with an attribute "name" and methods "fly" and "walk".
+* flying bird class with same attribute "name" and with the same methods.
+Implement the method "eat" which will describe it's typical ration.
+* nonflying bird class with same characteristics but which obviously will
+not have the "fly".
+Add same "eat" method but with other implementation regarding
+the swimming bird tastes.
+* a bird class which can do all of it: walk, fly, swim and eat.
+But be careful which "eat" method you inherit.
+
+Implement str() function call for each class.
+
+Example:
+
+```python
+>>> b = Bird("Any")
+>>> b.walk()
+"Any bird can walk"
+
+p = Penguin("Penguin")
+>> p.swim()
+"Penguin bird can swim"
+>>> p.fly()
+AttributeError: 'Penguin' object has no attribute 'fly'
+>>> p.eat()
+"It eats mostly fish"
+
+c = Canary("Canary")
+>>> str(c)
+"Canary can walk and fly"
+>>> c.eat()
+"It eats mostly grains"
+
+s = SeaGull("Gull")
+>>> str(s)
+"Gull bird can walk, swim and fly"
+>>> s.eat()
+"It eats fish"
+```
+
+Have a look at `__mro__` method of your last class.
+
+
+Task 6
+
+Implement a class Money to represent value and currency.
+You need to implement methods to use all basic arithmetics expressions
+(comparison, division, multiplication, addition and subtraction).
+To use this methods on different currencies implement
+an exchange_rate attribute.
+This attribute you should be able to change according
+to the currency or even delete.
+
+Example:
+```python
+>>> usd = Money(12, "usd")
+>>> usd_t = Money(42, "usd")
+>>> usd + usd_t
+Money(54, "usd")
+
+>>> usd = Money(100, "usd")
+>>> eur = Money(42, "eur")
+>>> usd.exchange_rate = 0.89
+>>> usd - eur
+Money(47, "usd")
+
+>>> del usd.exchange_rate
+```
+
+NOTE: Have a look at @functools.total_ordering
