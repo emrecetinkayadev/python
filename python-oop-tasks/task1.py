@@ -1,3 +1,11 @@
+'''
+Task 1
+
+Implement the decorator function, which helps to count how many times
+the function has occurred.
+
+*NOTE:* NOT able to use global variables.
+'''
 
 class counter():
     _i = 0  
