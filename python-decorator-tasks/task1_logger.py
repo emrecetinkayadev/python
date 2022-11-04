@@ -2,7 +2,7 @@
 # Write a decorator which wraps functions to log function arguments and the return value on each call. Provide support for both positional and named arguments (your wrapper function should take both *args and **kwargs and print them both): 
 from datetime import datetime
 
-class logger:
+class Logger:
     def __init__(self, func) -> None:
         self.func = func
     
@@ -12,17 +12,18 @@ class logger:
         print(template)
         
         # Write on File
-        log = open('log.txt', 'a+')
-        log.write(f'{datetime.now().strftime("%d-%m-%Y %H:%M:%S")} - {template} \n')
+        with open('log.txt', 'a+') as log:
+            log.write(f'{datetime.now().strftime("%d-%m-%Y %H:%M:%S")} - {template} \n')
+
       
-@logger
+@Logger
 def sum_2_num(a: int, b: int) -> int:
     return a + b
 
 # mult_2_num = logger(mult_2_num)
 # mult_2_num(2, 4)
 
-@logger
+@Logger
 def mult_2_num(a: int, b: int) -> int:
     return a * b
 
