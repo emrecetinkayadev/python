@@ -7,22 +7,28 @@ the function has occurred.
 *NOTE:* NOT able to use global variables.
 '''
 
-class counter():
+class Counter():
     _i = 0  
     def __init__(self, func) -> None:
         self.func = func
              
     def __call__(self, *args: any, **kwds: any) -> any:
-        counter._i += 1
-        return counter._i
+        Counter._i += 1
+        return Counter._i
 
-@counter
+@Counter
 def foo():
     pass
 
+@Counter
+def foo1():
+    pass
+
+
 foo()
 foo()
 foo()
+foo1()
 
 r = foo()
 

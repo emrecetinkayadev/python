@@ -16,6 +16,7 @@ class Counter():
         self.start = start
         self.stop = stop
         self.current = self.start
+        self.__secret = "sadasdad"
         
     def increment(self):
         if self.stop == -1:
@@ -24,25 +25,28 @@ class Counter():
             self.current += 1
         else:
             print("Maximal value is reached.")
+    
+    @property
+    def secret(self):
+        return self.__secret
         
-    def get(self):
-        return self.current
+        
     
 c = Counter(start=42)
 c.increment()
-print(c.get())
+print(c.current)
 
 c = Counter()
 c.increment()
-print(c.get())
+print(c.current)
 
 c.increment()
-print(c.get())
+print(c.current)
 
 c = Counter(start=42, stop=43)
 c.increment()
-print(c.get())
+print(c.current)
 
 c.increment()
 
-print(c.get())
+print(c.current)

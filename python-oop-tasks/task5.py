@@ -16,7 +16,7 @@ But be careful which "eat" method you inherit.
 Implement str() function call for each class.
 '''
 
-class Bird():
+class Bird:
     def __init__(self, name) -> None:
         self.name = name
         
@@ -24,7 +24,7 @@ class Bird():
         return "Any bird can walk."
     
     def swim(self):
-        return AttributeError(self, f"{self.name} object has not attribute 'swim'")
+        raise AttributeError(self, f"{self.name} object has not attribute 'swim'")
     
     def fly(self):
         raise AttributeError(f"{self.name} object has not attribute 'fly'")
@@ -33,9 +33,6 @@ class Bird():
         pass 
     
 class Penguin(Bird):
-    def __init__(self, name) -> None:
-        super().__init__(name)
-        
     def __str__(self) -> str:
         return f"{self.name} can walk and swim"
         
@@ -45,10 +42,7 @@ class Penguin(Bird):
     def eat(self):
         return "It eats mostly fish"
     
-class Canary(Bird):
-    def __init__(self, name) -> None:
-        super().__init__(name)
-        
+class Canary(Bird):      
     def __str__(self) -> str:
         return f"{self.name} can walk and fly"
     
@@ -59,9 +53,6 @@ class Canary(Bird):
         return "It eats mostly grains"
     
 class SeaGull(Bird):
-    def __init__(self, name) -> None:
-        super().__init__(name)
-
     def __str__(self) -> str:
         return f"{self.name} bird can walk, swim and fly"
         

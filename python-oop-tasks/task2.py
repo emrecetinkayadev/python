@@ -8,11 +8,11 @@ If there is only one element in the list return `None` instead.
 
 '''
 
-def get_pairs(L):
+def get_pairs(l):
     k = 2
     bubbleList = []
-    for i in range(len(L)-1):
-        bubbleList.append(tuple(L[i:k]))
+    for i in range(len(l)-1):
+        bubbleList.append(tuple(l[i:k]))
         k += 1
     return bubbleList
 
