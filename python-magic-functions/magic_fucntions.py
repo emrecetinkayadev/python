@@ -35,3 +35,43 @@ acc_str = Account_str("Helena")
 print(str(acc_str))
 print(repr(acc_str))
 print(acc_str)
+
+#__len__, __getitem__, __reversed__
+
+
+class Account_New(Account):
+    def __init__(self, owner, amount=0) -> None:
+        super().__init__(owner, amount)
+        self._transections = []
+
+    def __len__(self):
+        return len(self._transections)
+
+    def __getitem__(self, position):
+        return self._transections[position]
+
+    def add_amount(self, amount) -> None:
+        if not isinstance(amount, int):
+            raise ValueError(f'{amount} is not a int type.')
+        else:
+            self._transections.append(amount)
+
+    @property
+    def balance(self) -> int:
+        return self.amount + sum(self._transections)
+
+
+accbob = Account_New("Bob", 10)
+accbob.add_amount(20)
+accbob.add_amount(-30)
+accbob.add_amount(60)
+print(accbob.balance)
+
+print(len(accbob))
+for amount in accbob:
+    print(amount)
+
+if 20 in accbob:
+    print(True)
+
+print(dir(accbob))

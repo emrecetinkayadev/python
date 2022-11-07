@@ -20,16 +20,3 @@ class Money():
         
     def comparison(self):
         pass
-    
-    def division(self):
-
-        pass
-    
-    def multiplication(self):
-        pass
-    
-    def addition(self):
-        pass
-    
-    def subtraction(self):
-        pass
