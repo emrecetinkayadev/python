@@ -29,7 +29,19 @@ class Money(object):
 
     def __sub__(self, other_obj):
         if isinstance(other_obj, Money):
-            return Money(self.value + other_obj.value, self.name)
+            return Money(self.value - other_obj.value, self.name)
+        else:
+            raise ValueError(f"{other_obj} is not a Money type.")
+
+    def __mul__(self, other_obj):
+        if isinstance(other_obj, Money):
+            return Money(self.value - other_obj.value, self.name)
+        else:
+            raise ValueError(f"{other_obj} is not a Money type.")
+    
+    def __truediv__(self, other_obj):
+        if isinstance(other_obj, Money):
+            return Money(self.value - other_obj.value, self.name)
         else:
             raise ValueError(f"{other_obj} is not a Money type.")
 
