@@ -16,7 +16,7 @@ import functools
 # @functools.total_ordering
 
 
-class Money(object):
+class Money:
     def __init__(self, value, name) -> None:
         self.value = value
         self.name = name
@@ -38,7 +38,7 @@ class Money(object):
             return Money(self.value - other_obj.value, self.name)
         else:
             raise ValueError(f"{other_obj} is not a Money type.")
-    
+
     def __truediv__(self, other_obj):
         if isinstance(other_obj, Money):
             return Money(self.value - other_obj.value, self.name)
