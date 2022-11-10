@@ -55,7 +55,6 @@ class PaypalPaymentProcessor(PaymentProcessor):
         print(f"Verifying security code: {security_code}")
         order.status = "paid"
 
-
 order = Order()
 order.add_item("Keyboard", 1, 50)
 order.add_item("SSD", 1, 150)
