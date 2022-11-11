@@ -3,10 +3,11 @@
 # A class should have one and only one reason to change, meaning that a class should have only one job.
 
 class Order:
-    items = []
-    quantities = []
-    prices = []
-    status = "open"
+    def __init__(self) -> None:
+        self.items = []
+        self.quantities = []
+        self.prices = []
+        self.status = "open"
 
     def add_item(self, name, quantity, price):
         self.items.append(name)
@@ -43,3 +44,9 @@ order.add_item("USB cable", 2, 5)
 print(order.total_price())
 processor = PaymentProcessor()
 processor.pay_debit(order, "0372846")
+
+order2 = Order()
+order2.add_item("ee", 2, 23)
+order2.add_item("aa", 1, 15)
+order2.add_item("bb", 2, 5)
+print(order2.total_price())
