@@ -88,5 +88,5 @@ order.add_item("SSD", 1, 150)
 order.add_item("USB cable", 2, 5)
 
 print(order.total_price())
-processor = PaypalPaymentProcessor("hi@emre.com")
+processor = CreditPaymentProcessor("hi@emre.com")
 processor.pay(order)

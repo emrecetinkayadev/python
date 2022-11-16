@@ -1,5 +1,5 @@
 # Using the generator pattern (an iterable)
-class first_n(object):
+class FirstN:
     def __init__(self, n):
         self.n = n
         self.num = 0
@@ -19,4 +19,4 @@ class first_n(object):
         raise StopIteration()
 
 
-sum_of_first_n = sum(first_n(1000000))
+sum_of_first_n = sum(FirstN(1000000))
