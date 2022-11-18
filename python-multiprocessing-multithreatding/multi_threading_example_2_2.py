@@ -8,9 +8,11 @@ def longSquare(num, results):
 
 results = {}
 
-thread = [threading.Thread(target=longSquare, args=(n, results)) for n in range(0, 1000)]
+thread = [threading.Thread(target=longSquare, args=(n, results)) for n in range(0, 10)]
 
 [t.start() for t in thread]
 [t.join() for t in thread]
 
 print(results)
+
+
