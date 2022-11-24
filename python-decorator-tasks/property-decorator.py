@@ -16,12 +16,14 @@ class Employee:
         first, last = name.split(' ')
         self.first = first
         self.last = last
-    
+        print(f"Setter Ran, value: {name}")
+
     @fullname.deleter
     def fullname(self):
         print(f'{self.first} {self.last} deleted.')
         self.first = None
         self.last = None
+        print("Deleter Ran")
 
 
 emp_1 = Employee('John', "Smith")
@@ -35,4 +37,3 @@ print(emp_1.email)
 print(emp_1.fullname)
 del emp_1.fullname
 print(emp_1.fullname)
-
