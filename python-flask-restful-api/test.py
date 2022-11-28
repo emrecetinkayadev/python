@@ -17,13 +17,17 @@ for i in range(len(data)):
     response = requests.put(BASE + "video/" + str(i), data[i])
     print(response.json())
 
-input()
-response = requests.delete(BASE + "video/0")
-print(response)
-input()
-response = requests.get(BASE + "video/2")
+# response = requests.get(BASE + "video/6")
+# print(response.json())
+
+response = requests.get(BASE + "video/1")
 print(response.json())
 
+response = requests.delete(BASE + "video/1")
+print(response)
+
+response = requests.get(BASE + "video/1")
+print(response.json())
 
 # response = requests.get(BASE + "video/1")
 # print(response.json())
