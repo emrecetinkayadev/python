@@ -2,24 +2,9 @@ import asyncio
 from random import randint
 import aiohttp
 import time
-from functools import wraps
+import requests
 
 MAX_POKEMON = 898
-
-
-# Time counter for performans purpose.
-def time_counter(func):
-    @wraps(func)
-    def timeit_wrapper(*args, **kwargs):
-        start_time = time.perf_counter()
-        result = func(*args, **kwargs)
-        end_time = time.perf_counter()
-        total_time = end_time - start_time
-        print(
-            f'Function {func.__name__}{args} {kwargs} Took {total_time:.4f} seconds')
-        return result
-    return timeit_wrapper
-
 
 def get_random_pokemon_name_sync() -> str:
     pokemon_id = randint(1, MAX_POKEMON)
@@ -37,7 +22,6 @@ async def get_random_pokemon_name() -> str:
             return str(pokemon["name"])
 
 
-@time_counter
 async def main() -> None:
     time_before = time.perf_counter()
     for _ in range(20):

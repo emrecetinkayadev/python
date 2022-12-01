@@ -8,6 +8,7 @@ app.config["SQLALCHEMY_DATABASE_URL"] = "sqlite:///database.db"
 db = SQLAlchemy(app)
 
 
+# Model for video.
 class VideoModel(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
