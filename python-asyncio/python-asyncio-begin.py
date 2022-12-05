@@ -6,6 +6,7 @@ import requests
 
 MAX_POKEMON = 898
 
+
 def get_random_pokemon_name_sync() -> str:
     pokemon_id = randint(1, MAX_POKEMON)
     pokemon_url = f"https://pokeapi.co/api/v2/pokemon/{pokemon_id}"
@@ -23,12 +24,14 @@ async def get_random_pokemon_name() -> str:
 
 
 async def main() -> None:
+    # Syncronous Programing.
     time_before = time.perf_counter()
     for _ in range(20):
         pokemon_name = await get_random_pokemon_name()
         print(pokemon_name)
     print(f"Total time (synchronous: {time.perf_counter() - time_before})")
 
+    # Asyncronous Programing
     time_before = time.perf_counter()
     result = await asyncio.gather(*[get_random_pokemon_name() for _ in range(20)])
     print(result)

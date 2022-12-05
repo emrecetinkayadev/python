@@ -1,7 +1,6 @@
 import threading as th
 
-x = 0
-
+x = 0 
 
 def increase():
     global x

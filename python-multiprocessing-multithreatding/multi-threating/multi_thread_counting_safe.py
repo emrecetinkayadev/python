@@ -10,12 +10,12 @@ class ThreadSafeCounter:
 
     def increment(self):
         # Faster.
-        self._lock.acquire()
-        self._counter += 1
-        self._lock.release()
+        # self._lock.acquire()
+        # self._counter += 1
+        # self._lock.release()
 
-        # with self._lock:
-        #     self._counter += 1
+        with self._lock:
+            self._counter += 1
 
     def value(self):
         return self._counter
