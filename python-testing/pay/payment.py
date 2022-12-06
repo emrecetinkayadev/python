@@ -1,17 +1,21 @@
+from pay.credit_card import CreditCard
 from pay.order import Order
-from pay.processor import PaymentProcessor
+from typing import Protocol
+
+class PaymentProcessor(Protocol):
+    def charge(self, card: str, month: int, year: int, amount: int) -> None:
+        """Charges the card with the amount.
+
+        Args:
+            card (str): _description_
+            month (int): _description_
+            year (int): _description_
+            amount (int): _description_
+        """
 
 
-def pay_order(order: Order):
+def pay_order(order: Order, card: CreditCard, processor: PaymentProcessor):
     if order.total == 0:
         raise ValueError("Can't pay an order with total 0.")
-    card = input("Please enter your card number: ")
-    month = int(input("Please enter the card expiry month: "))
-    year = int(input("Please enter the card expiry year: "))
-    payment_processor = PaymentProcessor(
-        "6cfb67f3-6281-4031-b893-ea85db0dce20")
-    payment_processor.charge(card, month, year, amount=order.total)
+    processor.charge(card, amount=order.total)
     order.pay()
-
-
-
