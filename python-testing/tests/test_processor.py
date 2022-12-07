@@ -1,27 +1,52 @@
-from pay.processor import PaymentProcessor
-import pytest
-import json
 import os
+from datetime import date
+import pytest
+from dotenv import load_dotenv
+from pay.credit_card import CreditCard
+from pay.processor import PaymentProcessor, luhn_checksum
 
-here = os.path.dirname(os.path.abspath(__file__))
-filename = os.path.join(here, 'api.json')
+load_dotenv()
 
-with open(filename, "r") as file:
-    API_KEY = json.load(file)[0]["API_KEY"]
+API_KEY = os.getenv("API_KEY") or ""
+
+CC_YEAR = date.today().year + 2
 
 
-def test_api_key_invalid() -> None:
+@pytest.fixture
+def payment_processor() -> PaymentProcessor:
+    return PaymentProcessor(API_KEY)
+
+
+def test_invalid_api_key() -> None:
     with pytest.raises(ValueError):
-        processor = PaymentProcessor("")
-        processor.charge("5555555555554444", 12, 2024, 100)
+        card = CreditCard("1249190007575069", 12, CC_YEAR)
+        PaymentProcessor("").charge(card, 100)
 
 
-def test_card_valid_date() -> None:
-    processor = PaymentProcessor(API_KEY)
-    processor.charge("5555555555554444", 12, 2024, 100)
+def test_card_number_valid_date(payment_processor: PaymentProcessor) -> None:
+    card = CreditCard("1249190007575069", 12, CC_YEAR)
+    assert payment_processor.validate_card(card)
 
 
-def test_card_invalid_date() -> None:
+def test_card_number_invalid_date(payment_processor: PaymentProcessor) -> None:
+    card = CreditCard("1249190007575069", 12, 1900)
+    assert not payment_processor.validate_card(card)
+
+
+def test_card_number_invalid_luhn() -> None:
+    assert not luhn_checksum("1249190007575068")
+
+
+def test_card_number_valid_luhn() -> None:
+    assert luhn_checksum("1249190007575069")
+
+
+def test_charge_card_valid(payment_processor: PaymentProcessor) -> None:
+    card = CreditCard("1249190007575069", 12, CC_YEAR)
+    payment_processor.charge(card, 100)
+
+
+def test_charge_card_invalid(payment_processor: PaymentProcessor) -> None:
     with pytest.raises(ValueError):
-        processor = PaymentProcessor(API_KEY)
-        processor.charge("5555555555554444", 12, 1900, 100)
+        card = CreditCard("1249190007575068", 12, CC_YEAR)
+        payment_processor.charge(card, 100)
