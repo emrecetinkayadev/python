@@ -6,3 +6,4 @@ def firstn(n):
         num += 1
 
 sum_of_first_n = sum(firstn(1000000))
+print(sum_of_first_n)

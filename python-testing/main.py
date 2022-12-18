@@ -14,4 +14,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    print(dir(main))
+    print(main.__dir__())

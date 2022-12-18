@@ -22,6 +22,7 @@ while True:
 
 #  ----------------------------------------------------------------
 
+
 class MyRange:
     def __init__(self, start, end) -> None:
         self.value = start
@@ -45,14 +46,18 @@ print(next(nums))
 print(next(nums))
 print(next(nums))
 print(next(nums))
+nums_iter = iter(nums)
+
+for i in nums:
+    print(i)
 
 #  ----------------------------------------------------------------
 
-def my_range(start, end):
-    current = start
-    while current < end:
-        yield current
-        current += 1
+# def my_range(start, end):
+#     current = start
+#     while current < end:
+#         yield current
+#         current += 1
 
 
-nums = my_range(1, 10)
+# nums = my_range(1, 10)
