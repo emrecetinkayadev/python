@@ -2,7 +2,7 @@ import asyncio
 
 async def main():
     print("tim")
-    task = asyncio.create_task(foo("text"))
+    await asyncio.create_task(foo("text"))
     # await task
     await asyncio.sleep(0)
     print("finished")
